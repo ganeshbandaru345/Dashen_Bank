@@ -1,4 +1,4 @@
-
+/* Author :ganesh */
 PATH Dashen_log4jlib_1;
 DECLARE ns NAMESPACE 'http://www.example.org/Gateway/';
 
