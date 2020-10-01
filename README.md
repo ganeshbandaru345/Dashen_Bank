@@ -3,3 +3,4 @@ BankProject
 
 channel list
 mobile banking
+InternetBanking
