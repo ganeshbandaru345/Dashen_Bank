@@ -1,0 +1,73 @@
+
+
+Importing file: C:\Users\GANESH\IBM\ACET11\workspace\Dashen_INB_InternalFundtransfer_BusinessFlow\Gateway.wsdl
+
+
+The following is a list of WS-I warning messages found when importing:
+XSD: The location 'Gateway_InlineSchema1.xsd' has not been resolved, Line: 32, Column: 1
+WSDL: The 'AccountBalanceEnquiry' element referenced by the parameters part cannot be resolved., Line: 36, Column: 4
+WSDL: The 'AccountBalanceEnquiryResponse' element referenced by the parameters part cannot be resolved., Line: 39, Column: 5
+WSDL: The 'BankToWallet' element referenced by the parameters part cannot be resolved., Line: 43, Column: 4
+WSDL: The 'BankToWalletResponse' element referenced by the parameters part cannot be resolved., Line: 46, Column: 4
+WSDL: The 'WalletToBank' element referenced by the parameters part cannot be resolved., Line: 49, Column: 4
+WSDL: The 'WalletToBankResponse' element referenced by the parameters part cannot be resolved., Line: 52, Column: 4
+WSDL: The 'InternalTransfer' element referenced by the parameters part cannot be resolved., Line: 55, Column: 4
+WSDL: The 'InternalTransferResponse' element referenced by the parameters part cannot be resolved., Line: 58, Column: 4
+WSDL: The 'INB_InternalTransfer' element referenced by the parameters part cannot be resolved., Line: 61, Column: 4
+WSDL: The 'INB_InternalTransferResponse' element referenced by the parameters part cannot be resolved., Line: 64, Column: 4
+WSDL: The 'INB_AccountBalanceEnquiry' element referenced by the parameters part cannot be resolved., Line: 67, Column: 4
+WSDL: The 'INB_AccountBalanceEnquiryResponse' element referenced by the parameters part cannot be resolved., Line: 70, Column: 4
+WSDL: The 'INB_WalletRegistration' element referenced by the parameters part cannot be resolved., Line: 73, Column: 4
+WSDL: The 'INB_WalletRegistrationResponse' element referenced by the parameters part cannot be resolved., Line: 76, Column: 4
+WSDL: The 'INB_BankToWallet' element referenced by the parameters part cannot be resolved., Line: 79, Column: 4
+WSDL: The 'INB_BankToWalletResponse' element referenced by the parameters part cannot be resolved., Line: 82, Column: 4
+WSDL: The 'INB_WalletToBank' element referenced by the parameters part cannot be resolved., Line: 85, Column: 4
+WSDL: The 'INB_WalletToBankResponse' element referenced by the parameters part cannot be resolved., Line: 88, Column: 4
+WSDL: The 'INB_BatchUpload' element referenced by the parameters part cannot be resolved., Line: 91, Column: 4
+WSDL: The 'INB_BatchUploadResponse' element referenced by the parameters part cannot be resolved., Line: 94, Column: 4
+
+
+The WSDL import will proceed with bindings AccountBalanceEnquiry, BankToWallet, INB_AccountBalanceEnquiry, INB_BankToWallet, INB_BatchUpload, INB_InternalTransfer, INB_WalletRegistration, INB_WalletToBank, InternalTransfer, WalletToBank.
+Creating wsdl schema document for file:///C:/Users/GANESH/IBM/ACET11/workspace/Dashen_INB_InternalFundtransfer_BusinessFlow/Gateway.wsdl.
+Parsing wsdl binding {http://www.example.org/Gateway/}BankToWallet.
+Parsing wsdl binding input BankToWallet.
+Parsing wsdl binding output BankToWallet.
+Parsing wsdl binding {http://www.example.org/Gateway/}WalletToBank.
+Parsing wsdl binding input WalletToBank.
+Parsing wsdl binding output WalletToBank.
+Parsing wsdl binding {http://www.example.org/Gateway/}INB_BatchUpload.
+Parsing wsdl binding input INB_BatchUpload.
+Parsing wsdl binding output INB_BatchUpload.
+Parsing wsdl binding {http://www.example.org/Gateway/}INB_WalletRegistration.
+Parsing wsdl binding input INB_WalletRegistration.
+Parsing wsdl binding output INB_WalletRegistration.
+Parsing wsdl binding {http://www.example.org/Gateway/}InternalTransfer.
+Parsing wsdl binding input InternalTransfer.
+Parsing wsdl binding output InternalTransfer.
+Parsing wsdl binding {http://www.example.org/Gateway/}INB_WalletToBank.
+Parsing wsdl binding input INB_WalletToBank.
+Parsing wsdl binding output INB_WalletToBank.
+Parsing wsdl binding {http://www.example.org/Gateway/}AccountBalanceEnquiry.
+Parsing wsdl binding input AccountBalanceEnquiry.
+Parsing wsdl binding output AccountBalanceEnquiry.
+Parsing wsdl binding {http://www.example.org/Gateway/}INB_AccountBalanceEnquiry.
+Parsing wsdl binding input INB_AccountBalanceEnquiry.
+Parsing wsdl binding output INB_AccountBalanceEnquiry.
+Parsing wsdl binding {http://www.example.org/Gateway/}INB_BankToWallet.
+Parsing wsdl binding input INB_BankToWallet.
+Parsing wsdl binding output INB_BankToWallet.
+Parsing wsdl binding {http://www.example.org/Gateway/}INB_InternalTransfer.
+Parsing wsdl binding input INB_InternalTransfer.
+Parsing wsdl binding output INB_InternalTransfer.
+Processing doc style for operation BankToWallet.
+Processing doc style for operation WalletToBank.
+Processing doc style for operation INB_BatchUpload.
+Processing doc style for operation INB_WalletRegistration.
+Processing doc style for operation InternalTransfer.
+Processing doc style for operation INB_WalletToBank.
+Processing doc style for operation AccountBalanceEnquiry.
+Processing doc style for operation INB_AccountBalanceEnquiry.
+Processing doc style for operation INB_BankToWallet.
+Processing doc style for operation INB_InternalTransfer.
+Populating WSDL schema Gateway.xsd.
+Creating file Gateway.xsd in the workspace.

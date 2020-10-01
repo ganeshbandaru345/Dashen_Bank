@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Gateway/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/Gateway/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <xsd:element ibmSchExtn:docRoot="true" name="AccountBalanceEnquiry">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="AccNo" type="xsd:int"/>
+          	<xsd:element name="CustomerName" type="xsd:string"/>
+          	<xsd:element name="Email" type="xsd:string"/>
+          	<xsd:element name="Address" type="xsd:string"/>
+          	<xsd:element name="Mobileno" type="xsd:int"/>
+          	<xsd:element name="Currency" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element ibmSchExtn:docRoot="true" name="AccountBalanceEnquiryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="AccNo" type="xsd:int"/>
+          	<xsd:element name="Name" type="xsd:string"/>
+          	<xsd:element name="Email" type="xsd:string"/>
+          	<xsd:element name="MobileNo" type="xsd:int"/>
+          	<xsd:element name="Address" type="xsd:string"/>
+          	<xsd:element name="Amount" type="xsd:int"/>
+          	<xsd:element name="ResponseCode" type="xsd:int"/>
+          	<xsd:element name="ResponseStatus" type="xsd:string"/>
+          	<xsd:element name="Currency" type="xsd:string"/>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+  
+
+        <xsd:element ibmSchExtn:docRoot="true" name="BankToWallet">
+    <xsd:complexType>
+      <xsd:sequence>
+      	<xsd:element name="BankAccountNo" type="xsd:string"/>
+      	<xsd:element name="WalletID" type="xsd:string"/>
+      	<xsd:element name="Amount" type="xsd:int"/>
+      	<xsd:element name="Currency" type="xsd:string"/>
+      	<xsd:element name="CustomerName" type="xsd:string"/>
+      	<xsd:element name="Email" type="xsd:string"/>
+      	<xsd:element name="Address" type="xsd:string"/>
+      	<xsd:element name="RegisteredMobileno" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="BankToWalletResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+      	<xsd:element name="BankAccountNo" type="xsd:string"/>
+      	<xsd:element name="WalletID" type="xsd:string"/>
+      	<xsd:element name="CustomerName" type="xsd:string"/>
+      	<xsd:element name="RegisteredMobileNo" type="xsd:int"/>
+      	<xsd:element name="EmailID" type="xsd:string"/>
+      	<xsd:element name="CurrentAmount" type="xsd:int"/>
+      	<xsd:element name="ResponseCode" type="xsd:int"/>
+      	<xsd:element name="ResponseStatus" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="WalletToBank">
+    <xsd:complexType>
+      <xsd:sequence>
+      	<xsd:element name="WalletId" type="xsd:string"/>
+      	<xsd:element name="CustomerName" type="xsd:string"/>
+      	<xsd:element name="RegisteredMobileNo" type="xsd:int"/>
+      	<xsd:element name="Email" type="xsd:string"/>
+      	<xsd:element name="AmountToTransfer" type="xsd:int"/>
+      	<xsd:element name="AccNumber" type="xsd:string"/>
+      	<xsd:element name="Currency" type="xsd:string"/>
+      	<xsd:element name="Address" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="WalletToBankResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+      	<xsd:element name="AccNumber" type="xsd:string"/>
+      	<xsd:element name="CustomerName" type="xsd:string"/>
+      	<xsd:element name="RegisteredMobileNo" type="xsd:int"/>
+      	<xsd:element name="Email" type="xsd:string"/>
+      	<xsd:element name="Currency" type="xsd:string"/>
+      	<xsd:element name="CurrentAmount" type="xsd:int"/>
+      	<xsd:element name="ResponseCode" type="xsd:int"/>
+      	<xsd:element name="ResponseStatus" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="InternalTransfer">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Remmiter" type="tns:RemmiterDetails"/>
+        <xsd:element name="Benificiary" type="tns:BeneficiaryDetails"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="InternalTransferResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="TotalAmount" type="xsd:int"/>
+        <xsd:element name="Status" type="xsd:string"/>
+        <xsd:element name="RemmiterAccNumber" type="xsd:string"/>
+        <xsd:element name="RemmiterName" type="xsd:string"/>
+        <xsd:element name="RemmiterMobileNo" type="xsd:int"/>
+        <xsd:element name="RemmiterEmail" type="xsd:string"/>
+        <xsd:element name="BeneficiaryAccNumber" type="xsd:string"/>
+        <xsd:element name="BeneficiaryName" type="xsd:string"/>
+        <xsd:element name="BeneficiaryMobileNo" type="xsd:int"/>
+        <xsd:element name="BeneficiaryEmail" type="xsd:string"/>
+        <xsd:element name="ResponseCode" type="xsd:int"/>
+        <xsd:element name="ResponseStatus" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:complexType name="RemmiterDetails">
+    <xsd:sequence>
+      <xsd:element name="Name" type="xsd:string"/>
+      <xsd:element name="AccNumber" type="xsd:int"/>
+      <xsd:element name="MobileNo" type="xsd:int"/>
+      <xsd:element name="Email" type="xsd:string"/>
+      <xsd:element name="Address" type="xsd:string"/>
+      <xsd:element name="Country" type="xsd:string"/>
+      <xsd:element name="Amount" type="xsd:int"/>
+      <xsd:element name="Currency" type="xsd:string"/>
+      <xsd:element name="BankCountry" type="xsd:string"/>
+      <xsd:element name="BankName" type="xsd:string"/>
+      <xsd:element name="swiftId" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+    <xsd:complexType name="BeneficiaryDetails">
+    <xsd:sequence>
+      <xsd:element name="Name" type="xsd:string"/>
+      <xsd:element name="AccNumber" type="xsd:string"/>
+      <xsd:element name="MobileNo" type="xsd:int"/>
+      <xsd:element name="Email" type="xsd:string"/>
+      <xsd:element name="Address" type="xsd:string"/>
+      <xsd:element name="Amount" type="xsd:int"/>
+      <xsd:element name="Currency" type="xsd:string"/>
+      <xsd:element name="Remarks" type="xsd:string"/>
+      <xsd:element name="RemmitenceReason" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+    <xsd:element ibmSchExtn:docRoot="true" name="INB_InternalTransfer">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="INB_Remmiter" type="tns:RemmiterDetails"/>
+        <xsd:element name="INB_Benificiary" type="tns:BeneficiaryDetails"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="INB_InternalTransferResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="RemitterTotalAmount" type="xsd:float"/>
+        <xsd:element name="BeneficiaryAccNumber" type="xsd:int"/>
+        <xsd:element name="BeneficiaryEmail" type="xsd:string"/>
+        <xsd:element name="BeneficiaryMobileNo" type="xsd:string"/>
+        <xsd:element name="BeneficiaryName" type="xsd:string"/>
+        <xsd:element name="RemmiterAccNumber" type="xsd:int"/>
+        <xsd:element name="RemmiterEmail" type="xsd:string"/>
+        <xsd:element name="RemmiterMobileNo" type="xsd:string"/>
+        <xsd:element name="RemmiterName" type="xsd:string"/>
+        <xsd:element name="ResponseCode" type="xsd:int"/>
+        <xsd:element name="ResponseStatus" type="xsd:string"/>
+        <xsd:element name="Status" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="INB_AccountBalanceEnquiry">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="AccountNo" type="xsd:int"/>
+        <xsd:element name="CustomerName" type="xsd:string"/>
+        <xsd:element name="Email" type="xsd:string"/>
+        <xsd:element name="Address" type="xsd:string"/>
+        <xsd:element name="MobileNo" type="xsd:int"/>
+        <xsd:element name="Currency" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="INB_AccountBalanceEnquiryResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="AccountNo" type="xsd:int"/>
+        <xsd:element name="Name" type="xsd:string"/>
+        <xsd:element name="Email" type="xsd:string"/>
+        <xsd:element name="MobileNo" type="xsd:int"/>
+        <xsd:element name="Address" type="xsd:string"/>
+        <xsd:element name="Amount" type="xsd:int"/>
+        <xsd:element name="ResponseCode" type="xsd:int"/>
+        <xsd:element name="ResponseStatus" type="xsd:string"/>
+        <xsd:element name="Currency" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="INB_WalletRegistration">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="AccountNo" type="xsd:string"/>
+        <xsd:element name="CustomerName" type="xsd:string"/>
+        <xsd:element name="Email" type="xsd:string"/>
+        <xsd:element name="Address" type="xsd:string"/>
+        <xsd:element name="MobileNo" type="xsd:int"/>
+        <xsd:element name="AccountType" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="INB_WalletRegistrationResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="AccountNo" type="xsd:string"/>
+        <xsd:element name="CustomerName" type="xsd:string"/>
+        <xsd:element name="WalletID" type="xsd:string"/>
+        <xsd:element name="MobileNo" type="xsd:int"/>
+        <xsd:element name="Email" type="xsd:string"/>
+        <xsd:element name="Currency" type="xsd:string"/>
+        <xsd:element name="ResponseCode" type="xsd:string"/>
+        <xsd:element name="ResponseStatus" type="xsd:string"/>
+        <xsd:element name="CreatedOn" type="xsd:time"/>
+        <xsd:element name="Status" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="INB_BankToWallet">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="BankAccountNo" type="xsd:string"/>
+        <xsd:element name="WalletID" type="xsd:string"/>
+        <xsd:element name="Amount" type="xsd:int"/>
+        <xsd:element name="Currency" type="xsd:string"/>
+        <xsd:element name="CustomerName" type="xsd:string"/>
+        <xsd:element name="Email" type="xsd:string"/>
+        <xsd:element name="Address" type="xsd:string"/>
+        <xsd:element name="RegisteredMobileno" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="INB_BankToWalletResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="BankAccountNo" type="xsd:string"/>
+        <xsd:element name="WalletID" type="xsd:string"/>
+        <xsd:element name="CustomerName" type="xsd:string"/>
+        <xsd:element name="RegisteredMobileNo" type="xsd:int"/>
+        <xsd:element name="EmailID" type="xsd:string"/>
+        <xsd:element name="CurrentAmount" type="xsd:int"/>
+        <xsd:element name="ResponseCode" type="xsd:int"/>
+        <xsd:element name="ResponseStatus" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="INB_WalletToBank">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="WalletId" type="xsd:string"/>
+        <xsd:element name="CustomerName" type="xsd:string"/>
+        <xsd:element name="RegisteredMobileNo" type="xsd:int"/>
+        <xsd:element name="Email" type="xsd:string"/>
+        <xsd:element name="AmountToTransfer" type="xsd:int"/>
+        <xsd:element name="AccNumber" type="xsd:string"/>
+        <xsd:element name="Currency" type="xsd:string"/>
+        <xsd:element name="Address" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="INB_WalletToBankResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="AccNumber" type="xsd:string"/>
+        <xsd:element name="CustomerName" type="xsd:string"/>
+        <xsd:element name="RegisteredMobileNo" type="xsd:int"/>
+        <xsd:element name="Email" type="xsd:string"/>
+        <xsd:element name="Currency" type="xsd:string"/>
+        <xsd:element name="CurrentAmount" type="xsd:int"/>
+        <xsd:element name="ResponseCode" type="xsd:int"/>
+        <xsd:element name="ResponseStatus" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="INB_BatchUpload">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Accountno" type="xsd:int"/>
+        <xsd:element name="Companyname" type="xsd:string"/>
+        <xsd:element name="Customername" type="xsd:string"/>
+        <xsd:element name="Email" type="xsd:string"/>
+        <xsd:element name="Phoneno" type="xsd:int"/>
+        <xsd:element name="Currency" type="xsd:string"/>
+        <xsd:element name="Amount" type="xsd:int"/>
+        <xsd:element name="Debit_Amount" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="INB_BatchUploadResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Person1" type="tns:Person1_Details"/>
+        <xsd:element name="Person2" type="tns:Person2_Details"/>
+        <xsd:element name="Person3" type="tns:Person3_Details"/>
+        <xsd:element name="Person4" type="tns:Person4_Details"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:complexType name="Person_Details"/>
+    <xsd:complexType name="Person1_Details">
+    <xsd:sequence>
+      <xsd:element name="Accountno" type="xsd:int"/>
+      <xsd:element name="Personname" type="xsd:string"/>
+      <xsd:element name="Email" type="xsd:string"/>
+      <xsd:element name="Phoneno" type="xsd:int"/>
+      <xsd:element name="Address" type="xsd:string"/>
+      <xsd:element name="Total_Amount" type="xsd:int"/>
+      <xsd:element name="Credit_Amount" type="xsd:int"/>
+      <xsd:element name="Responsecode" type="xsd:int"/>
+      <xsd:element name="Responestatus" type="xsd:string"/>
+      <xsd:element name="Currency" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+    <xsd:complexType name="Person2_Details">
+    <xsd:sequence>
+      <xsd:element name="Accountno" type="xsd:int"/>
+      <xsd:element name="Personname" type="xsd:string"/>
+      <xsd:element name="Email" type="xsd:string"/>
+      <xsd:element name="Phoneno" type="xsd:int"/>
+      <xsd:element name="Address" type="xsd:string"/>
+      <xsd:element name="Total_Amount" type="xsd:int"/>
+      <xsd:element name="Credit_Amount" type="xsd:int"/>
+      <xsd:element name="Responsecode" type="xsd:int"/>
+      <xsd:element name="Responestatus" type="xsd:string"/>
+      <xsd:element name="Currency" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+    <xsd:complexType name="Person3_Details">
+    <xsd:sequence>
+      <xsd:element name="Accountno" type="xsd:int"/>
+      <xsd:element name="Personname" type="xsd:string"/>
+      <xsd:element name="Email" type="xsd:string"/>
+      <xsd:element name="Phoneno" type="xsd:int"/>
+      <xsd:element name="Address" type="xsd:string"/>
+      <xsd:element name="Total_Amount" type="xsd:int"/>
+      <xsd:element name="Credit_Amount" type="xsd:int"/>
+      <xsd:element name="Responsecode" type="xsd:int"/>
+      <xsd:element name="Responestatus" type="xsd:string"/>
+      <xsd:element name="Currency" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+    <xsd:complexType name="Person4_Details">
+    <xsd:sequence>
+      <xsd:element name="Accountno" type="xsd:int"/>
+      <xsd:element name="Personname" type="xsd:string"/>
+      <xsd:element name="Email" type="xsd:string"/>
+      <xsd:element name="Phoneno" type="xsd:int"/>
+      <xsd:element name="Address" type="xsd:string"/>
+      <xsd:element name="Total_Amount" type="xsd:int"/>
+      <xsd:element name="Credit_Amount" type="xsd:int"/>
+      <xsd:element name="Responsecode" type="xsd:int"/>
+      <xsd:element name="Responestatus" type="xsd:string"/>
+      <xsd:element name="Currency" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

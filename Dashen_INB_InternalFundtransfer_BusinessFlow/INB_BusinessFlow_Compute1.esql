@@ -1,0 +1,105 @@
+
+
+
+PATH Dashen_log4jlib_1;
+
+CREATE COMPUTE MODULE INB_BusinessFlow_Compute1
+	DECLARE rc BOOLEAN;
+	DECLARE LOG4J_PATH EXTERNAL CHARACTER;
+	DECLARE LOG4J_ERROR EXTERNAL CHARACTER;
+	
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		CALL initLog4j(LOG4J_PATH) INTO rc;
+		IF (rc = TRUE) THEN
+		-- CALL CopyMessageHeaders();
+		  CALL CopyEntireMessage();
+		  ELSE
+			SET OutputRoot.XMLNSC.Log.Message = LOG4J_ERROR;
+		END IF;
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE id1 CHARACTER InputRoot.HTTPResponseHeader."Content-Type";
+	    SET Environment.id1 = id1;
+	    
+	    DECLARE refid CHARACTER SUBSTRING(InputRoot.HTTPResponseHeader."Content-Type" FROM 3);
+        DECLARE refid1 INTEGER LENGTH(refid);
+        SET refid = SUBSTRING(refid FROM 1 FOR refid1-1);
+    
+	    SET Environment.ccidRef1 = InputRoot.Properties.CodedCharSetId;
+        SET Environment.encodeRef1 = InputRoot.Properties.Encoding;
+	    SET Environment.domainDataRef1 = InputRoot.JSON.Data;
+	    SET Environment.domainName1 = FIELDNAME(InputBody); 
+	    
+	    DECLARE TRANSACTION_STATUS3 CHARACTER 'Response Received from Backend flow';
+	    DECLARE CREATED_ON3 TIMESTAMP CURRENT_TIMESTAMP;
+	    DECLARE qry11 CHARACTER 'UPDATE TRANSACTION_LOG SET TRANSACTION_STATUS=?,CREATED_ON=? WHERE REQ_ID LIKE ''%'||refid||'%''';
+	    SET Environment.val1[] = PASSTHRU(qry11 TO Database.DBDSN VALUES(TRANSACTION_STATUS3,CREATED_ON3));
+	    
+	    DECLARE blob2 BLOB ASBITSTREAM(InputRoot.JSON.Data);
+	    
+	    SET OutputRoot.MQRFH2.usr.ReqId = Environment.id1;
+	    SET OutputRoot.MQRFH2.usr.Flow_Name = MessageFlowLabel;
+	    SET OutputRoot.MQRFH2.usr.Payload_Type = 'INB_InternalfundtransferBusinessflow_Response';
+	    SET OutputRoot.XMLNSC.DBLOG = blob2;
+	            PROPAGATE TO TERMINAL 'out1' DELETE NONE; 
+        SET OutputRoot.MQRFH2 = NULL;
+        SET OutputRoot.XMLNSC = NULL;
+        
+        DECLARE ccidRef INTEGER Environment.ccidRef1;
+        DECLARE encodeRef INTEGER Environment.encodeRef1;
+	    DECLARE domainDataRef REFERENCE TO Environment.domainDataRef1;
+	    DECLARE domainName CHARACTER Environment.domainName1;
+		DECLARE LOG2 CHARACTER getPayLoad(domainName,domainDataRef,encodeRef,ccidRef);
+		
+		CALL writeToLogFile(MessageFlowLabel,'BUSINESSFLOW_LOG','DEBUG','----------------------------------------------') INTO rc;
+		CALL writeToLogFile(MessageFlowLabel,'BUSINESSFLOW_LOG','DEBUG','Request data is: '||LOG2) INTO rc;
+	            
+		SET OutputRoot.MQRFH2.usr.ReqId = Environment.id1;
+--		DECLARE InRef REFERENCE TO InputRoot.JSON.Data.INB_InternalTransferResponse;
+--		DECLARE OutRef REFERENCE TO OutputRoot.XMLNSC.ns:INB_InternalTransferResponse;
+		
+		SET OutputRoot.XMLNSC.ns:INB_InternalTransferResponse.BeneficiaryAccNumber = InputRoot.JSON.Data.INB_InternalTransferResponse.BeneficiaryAccNumber;
+		SET OutputRoot.XMLNSC.ns:INB_InternalTransferResponse.BeneficiaryEmail = InputRoot.JSON.Data.INB_InternalTransferResponse.BeneficiaryEmail;
+		SET OutputRoot.XMLNSC.ns:INB_InternalTransferResponse.BeneficiaryMobileNo = InputRoot.JSON.Data.INB_InternalTransferResponse.BeneficiaryMobileNo;
+		SET OutputRoot.XMLNSC.ns:INB_InternalTransferResponse.BeneficiaryName = InputRoot.JSON.Data.INB_InternalTransferResponse.BeneficiaryName;
+		SET OutputRoot.XMLNSC.ns:INB_InternalTransferResponse.RemmiterAccNumber = InputRoot.JSON.Data.INB_InternalTransferResponse.RemmiterAccNumber;
+		SET OutputRoot.XMLNSC.ns:INB_InternalTransferResponse.RemmiterEmail = InputRoot.JSON.Data.INB_InternalTransferResponse.RemmiterEmail;
+		SET OutputRoot.XMLNSC.ns:INB_InternalTransferResponse.RemmiterMobileNo = InputRoot.JSON.Data.INB_InternalTransferResponse.RemmiterMobileNo;
+		SET OutputRoot.XMLNSC.ns:INB_InternalTransferResponse.RemmiterName = InputRoot.JSON.Data.INB_InternalTransferResponse.RemmiterName;
+		SET OutputRoot.XMLNSC.ns:INB_InternalTransferResponse.ResponseCode = InputRoot.JSON.Data.INB_InternalTransferResponse.ResponseCode;
+		SET OutputRoot.XMLNSC.ns:INB_InternalTransferResponse.ResponseStatus = InputRoot.JSON.Data.INB_InternalTransferResponse.ResponseStatus;
+		SET OutputRoot.XMLNSC.ns:INB_InternalTransferResponse.Status = InputRoot.JSON.Data.INB_InternalTransferResponse.Status;
+		SET OutputRoot.XMLNSC.ns:INB_InternalTransferResponse.TotalAmount = InputRoot.JSON.Data.INB_InternalTransferResponse.TotalAmount;
+		
+		DECLARE Qry1 CHARACTER 'SELECT * FROM DASHENBANK_SERVICE_CONFIG WHERE BUSINESSFLOW_NAME=?';
+		DECLARE DATA ROW;
+		DECLARE data1 CHARACTER 'InternalTransfer';
+		SET DATA.values[]=PASSTHRU(Qry1 TO Database.DBDSN VALUES(data1));
+		SET OutputLocalEnvironment.Destination.MQ.DestinationData[1].queueName  = DATA.values.ROUTER_RESPONSE_Q;
+        
+        DECLARE TRANSACTION_STATUS4 CHARACTER 'Response Sent to Router_Response flow';
+	    DECLARE CREATED_ON4 TIMESTAMP CURRENT_TIMESTAMP;
+	    SET Environment.val2[] = PASSTHRU(qry11 TO Database.DBDSN VALUES(TRANSACTION_STATUS4,CREATED_ON4));
+		 
+		DECLARE domainDataRef1 REFERENCE TO OutputRoot.XMLNSC;
+		DECLARE domainName1 CHARACTER 'XMLNSC';
+		DECLARE LOG5 CHARACTER getPayLoad(domainName1,domainDataRef1,encodeRef,ccidRef);
+		
+		CALL writeToLogFile(MessageFlowLabel,'BUSINESSFLOW_LOG','DEBUG','Response data is: '||LOG5) INTO rc;
+		CALL writeToLogFile(MessageFlowLabel,'BUSINESSFLOW_LOG','DEBUG','------------INB_InternalFundTransfer Bussiness Flow is Ended------------') INTO rc;
+		
+	END;
+END MODULE;

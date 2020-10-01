@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Gateway" targetNamespace="http://www.example.org/Gateway/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/Gateway/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="BankToWallet" originalBindingStyle="document"/>
+        <binding hasEncoding="false" imported="true" name="INB_AccountBalanceEnquiry" originalBindingStyle="document"/>
+        <binding hasEncoding="false" imported="true" name="INB_WalletToBank" originalBindingStyle="document"/>
+        <binding hasEncoding="false" imported="true" name="INB_InternalTransfer" originalBindingStyle="document"/>
+        <binding hasEncoding="false" imported="true" name="INB_BatchUpload" originalBindingStyle="document"/>
+        <binding hasEncoding="false" imported="true" name="WalletToBank" originalBindingStyle="document"/>
+        <binding hasEncoding="false" imported="true" name="INB_BankToWallet" originalBindingStyle="document"/>
+        <binding hasEncoding="false" imported="true" name="INB_WalletRegistration" originalBindingStyle="document"/>
+        <binding hasEncoding="false" imported="true" name="InternalTransfer" originalBindingStyle="document"/>
+        <binding hasEncoding="false" imported="true" name="AccountBalanceEnquiry" originalBindingStyle="document"/>
+        <generatedXSD location="Gateway_InlineSchema1.xsd"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <wsdl:types>
+    
+          <xsd:schema targetNamespace="http://www.example.org/Gateway/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+<xsd:include schemaLocation="Gateway_InlineSchema1.xsd"/>
+</xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="AccountBalanceEnquiryRequest">
+  	<wsdl:part element="tns:AccountBalanceEnquiry" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="AccountBalanceEnquiryResponse">
+    <wsdl:part element="tns:AccountBalanceEnquiryResponse" name="parameters"/>
+  </wsdl:message>
+
+  <wsdl:message name="BankToWalletRequest">
+  	<wsdl:part element="tns:BankToWallet" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="BankToWalletResponse">
+  	<wsdl:part element="tns:BankToWalletResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="WalletToBankRequest">
+  	<wsdl:part element="tns:WalletToBank" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="WalletToBankResponse">
+  	<wsdl:part element="tns:WalletToBankResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="InternalTransferRequest">
+  	<wsdl:part element="tns:InternalTransfer" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="InternalTransferResponse">
+  	<wsdl:part element="tns:InternalTransferResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="INB_InternalTransferRequest">
+  	<wsdl:part element="tns:INB_InternalTransfer" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="INB_InternalTransferResponse">
+  	<wsdl:part element="tns:INB_InternalTransferResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="INB_AccountBalanceEnquiryRequest">
+  	<wsdl:part element="tns:INB_AccountBalanceEnquiry" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="INB_AccountBalanceEnquiryResponse">
+  	<wsdl:part element="tns:INB_AccountBalanceEnquiryResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="INB_WalletRegistrationRequest">
+  	<wsdl:part element="tns:INB_WalletRegistration" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="INB_WalletRegistrationResponse">
+  	<wsdl:part element="tns:INB_WalletRegistrationResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="INB_BankToWalletRequest">
+  	<wsdl:part element="tns:INB_BankToWallet" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="INB_BankToWalletResponse">
+  	<wsdl:part element="tns:INB_BankToWalletResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="INB_WalletToBankRequest">
+  	<wsdl:part element="tns:INB_WalletToBank" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="INB_WalletToBankResponse">
+  	<wsdl:part element="tns:INB_WalletToBankResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="INB_BatchUploadRequest">
+  	<wsdl:part element="tns:INB_BatchUpload" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="INB_BatchUploadResponse">
+  	<wsdl:part element="tns:INB_BatchUploadResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="AccountBalanceEnquiry">
+    <wsdl:operation name="AccountBalanceEnquiry">
+      <wsdl:input message="tns:AccountBalanceEnquiryRequest"/>
+      <wsdl:output message="tns:AccountBalanceEnquiryResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+
+  <wsdl:portType name="BankToWallet">
+  	<wsdl:operation name="BankToWallet">
+  		<wsdl:input message="tns:BankToWalletRequest"/>
+  		<wsdl:output message="tns:BankToWalletResponse"/>
+  	</wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WalletToBank">
+  	<wsdl:operation name="WalletToBank">
+  		<wsdl:input message="tns:WalletToBankRequest"/>
+  		<wsdl:output message="tns:WalletToBankResponse"/>
+  	</wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="InternalTransfer">
+  	<wsdl:operation name="InternalTransfer">
+  		<wsdl:input message="tns:InternalTransferRequest"/>
+  		<wsdl:output message="tns:InternalTransferResponse"/>
+  	</wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="INB_InternalTransfer">
+  	<wsdl:operation name="INB_InternalTransfer">
+  		<wsdl:input message="tns:INB_InternalTransferRequest"/>
+  		<wsdl:output message="tns:INB_InternalTransferResponse"/>
+  	</wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="INB_AccountBalanceEnquiry">
+  	<wsdl:operation name="INB_AccountBalanceEnquiry">
+  		<wsdl:input message="tns:INB_AccountBalanceEnquiryRequest"/>
+  		<wsdl:output message="tns:INB_AccountBalanceEnquiryResponse"/>
+  	</wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="INB_WalletRegistration">
+  	<wsdl:operation name="INB_WalletRegistration">
+  		<wsdl:input message="tns:INB_WalletRegistrationRequest"/>
+  		<wsdl:output message="tns:INB_WalletRegistrationResponse"/>
+  	</wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="INB_BankToWallet">
+  	<wsdl:operation name="INB_BankToWallet">
+  		<wsdl:input message="tns:INB_BankToWalletRequest"/>
+  		<wsdl:output message="tns:INB_BankToWalletResponse"/>
+  	</wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="INB_WalletToBank">
+  	<wsdl:operation name="INB_WalletToBank">
+  		<wsdl:input message="tns:INB_WalletToBankRequest"/>
+  		<wsdl:output message="tns:INB_WalletToBankResponse"/>
+  	</wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="INB_BatchUpload">
+  	<wsdl:operation name="INB_BatchUpload">
+  		<wsdl:input message="tns:INB_BatchUploadRequest"/>
+  		<wsdl:output message="tns:INB_BatchUploadResponse"/>
+  	</wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccountBalanceEnquiry" type="tns:AccountBalanceEnquiry">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AccountBalanceEnquiry">
+      <soap:operation soapAction="http://www.example.org/Gateway/AccountBalanceEnquiry"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+
+  <wsdl:binding name="BankToWallet" type="tns:BankToWallet">
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  	<wsdl:operation name="BankToWallet">
+  		<soap:operation soapAction="http://www.example.org/Gateway/BankToWallet"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WalletToBank" type="tns:WalletToBank">
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  	<wsdl:operation name="WalletToBank">
+  		<soap:operation soapAction="http://www.example.org/Gateway/WalletToBank"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InternalTransfer" type="tns:InternalTransfer">
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  	<wsdl:operation name="InternalTransfer">
+  		<soap:operation soapAction="http://www.example.org/Gateway/InternalTransfer"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="INB_InternalTransfer" type="tns:INB_InternalTransfer">
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  	<wsdl:operation name="INB_InternalTransfer">
+  		<soap:operation soapAction="http://www.example.org/Gateway/INB_InternalTransfer"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="INB_AccountBalanceEnquiry" type="tns:INB_AccountBalanceEnquiry">
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  	<wsdl:operation name="INB_AccountBalanceEnquiry">
+  		<soap:operation soapAction="http://www.example.org/Gateway/INB_AccountBalanceEnquiry"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="INB_WalletRegistration" type="tns:INB_WalletRegistration">
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  	<wsdl:operation name="INB_WalletRegistration">
+  		<soap:operation soapAction="http://www.example.org/Gateway/INB_WalletRegistration"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="INB_BankToWallet" type="tns:INB_BankToWallet">
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  	<wsdl:operation name="INB_BankToWallet">
+  		<soap:operation soapAction="http://www.example.org/Gateway/INB_BankToWallet"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="INB_WalletToBank" type="tns:INB_WalletToBank">
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  	<wsdl:operation name="INB_WalletToBank">
+  		<soap:operation soapAction="http://www.example.org/Gateway/INB_WalletToBank"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="INB_BatchUpload" type="tns:INB_BatchUpload">
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  	<wsdl:operation name="INB_BatchUpload">
+  		<soap:operation soapAction="http://www.example.org/Gateway/INB_BatchUpload"/>
+  		<wsdl:input>
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountBalanceEnquiry">
+    <wsdl:port binding="tns:AccountBalanceEnquiry" name="AccountBalanceEnquiry">
+      <soap:address location="http://localhost:7800/AccountBalanceEnquiry"/>
+    </wsdl:port>
+  </wsdl:service>
+
+  <wsdl:service name="BankToWallet">
+  	<wsdl:port binding="tns:BankToWallet" name="BankToWallet">
+  		<soap:address location="http://localhost:7800/BankToWallet"/>
+  	</wsdl:port>
+  </wsdl:service>
+  <wsdl:service name="WalletToBank">
+  	<wsdl:port binding="tns:WalletToBank" name="WalletToBank">
+  		<soap:address location="http://localhost:7800/WalletToBank"/>
+  	</wsdl:port>
+  </wsdl:service>
+  <wsdl:service name="InternalTransfer">
+  	<wsdl:port binding="tns:InternalTransfer" name="InternalTransfer">
+  		<soap:address location="http://localhost:7800/InternalTransfer"/>
+  	</wsdl:port>
+  </wsdl:service>
+  <wsdl:service name="INB_InternalTransfer">
+  	<wsdl:port binding="tns:INB_InternalTransfer" name="INB_InternalTransfer">
+  		<soap:address location="http://localhost:7800/INB_InternalTransfer"/>
+  	</wsdl:port>
+  </wsdl:service>
+  <wsdl:service name="INB_AccountBalanceEnquiry">
+  	<wsdl:port binding="tns:INB_AccountBalanceEnquiry" name="INB_AccountBalanceEnquiry">
+  		<soap:address location="http://localhost:7800/INB_AccountBalanceEnquiry"/>
+  	</wsdl:port>
+  </wsdl:service>
+  <wsdl:service name="INB_WalletRegistration">
+  	<wsdl:port binding="tns:INB_WalletRegistration" name="INB_WalletRegistration">
+  		<soap:address location="http://localhost:7800/INB_WalletRegistration"/>
+  	</wsdl:port>
+  </wsdl:service>
+  <wsdl:service name="INB_BankToWallet">
+  	<wsdl:port binding="tns:INB_BankToWallet" name="INB_BankToWallet">
+  		<soap:address location="http://localhost:7800/INB_BankToWallet"/>
+  	</wsdl:port>
+  </wsdl:service>
+  <wsdl:service name="INB_WalletToBank">
+  	<wsdl:port binding="tns:INB_WalletToBank" name="INB_WalletToBank">
+  		<soap:address location="http://localhoast:7800/INB_WalletToBank"/>
+  	</wsdl:port>
+  </wsdl:service>
+  <wsdl:service name="INB_BatchUpload">
+  	<wsdl:port binding="tns:INB_BatchUpload" name="INB_BatchUpload">
+  		<soap:address location="http://localhost:7800/INB_BatchUpload"/>
+  	</wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
